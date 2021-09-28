@@ -1,8 +1,10 @@
 import React from "react";
-import data from './data.json'
+import data from './db.json'
 import Products from "./components/Products";
 import Filter from "./components/Filter";
 import Cart from "./components/Cart";
+import store from "./store";
+import { Provider } from "react-redux";
 
 class App extends React.Component {
     constructor(){
@@ -12,7 +14,6 @@ class App extends React.Component {
             cartItems: localStorage.getItem('cartItems') ?
             JSON.parse(localStorage.getItem('cartItems')) : [],
             type:'',
-            // sort:'',
         };
     }
 
@@ -43,18 +44,6 @@ class App extends React.Component {
         this.setState({cartItems})
         localStorage.setItem('cartItems', JSON.stringify(cartItems))
     } 
-
-    // sortProducts = (event) => {
-    //     const sort = event.target.value;
-    //     this.setState((state) => ({
-    //         sort: sort,
-    //         products: this.state.products.slice().sort((a,b) =>
-    //             sort === '2' ? a.price > b.price ? 1: -1:
-    //             sort === '3' ? a.price < b.price ? 1: -1:
-    //             a._id < b._id ? 1: -1,
-    //         )
-    //     }))
-    // }
     
     filterProducts = (event) => {
         if(event.target.value === '') {
@@ -70,36 +59,35 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className='container-app'>
-                <header>
-                    <a href='/'>System for oders</a>
-                </header>
-                <main>
-                    <div className='content-app'>
-                        <div className='main-content-app'>
-                            <Filter count={this.state.products.length} 
-                                type={this.state.type}
-                                // {/* sort={this.state.sort} */}
-                                filterProducts={this.filterProducts}
-                                // {/* sortProducts={this.sortProducts} */}
-                                >
-                            </Filter>
-                            <Products 
-                                products={this.state.products} 
-                                addToCart={this.addToCart}>
-                            </Products>
+            <Provider store={store}>
+                <div className='container-app'>
+                    <header>
+                        <a href='/'>System for oders</a>
+                    </header>
+                    <main>
+                        <div className='content-app'>
+                            <div className='main-content-app'>
+                                <Filter count={this.state.products.length} 
+                                    type={this.state.type}
+                                    filterProducts={this.filterProducts}>
+                                </Filter>
+                                <Products 
+                                    products={this.state.products} 
+                                    addToCart={this.addToCart}>
+                                </Products>
+                            </div>
+                            <div className='sidebar-app'>
+                                <Cart 
+                                    cartItems={this.state.cartItems} 
+                                    removeFromCart={this.removeFromCart}
+                                    createOrder={this.createOrder}
+                                />
+                            </div>
                         </div>
-                        <div className='sidebar-app'>
-                            <Cart 
-                                cartItems={this.state.cartItems} 
-                                removeFromCart={this.removeFromCart}
-                                createOrder={this.createOrder}
-                            />
-                        </div>
-                    </div>
-                </main>
-                <footer>All right is reser</footer>
-            </div>
+                    </main>
+                    <footer>All right is reser</footer>
+                </div>
+            </Provider>
         )
     }
 }
