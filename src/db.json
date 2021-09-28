@@ -1,0 +1,176 @@
+{
+    "products": [
+        {
+            "_id": "dishes1",
+            "title": "Beef Burger",
+            "image": "/images/dishes1.jpg",
+            "description": "Brioche bun, beef patty, cheddar, cheese sauce,tomatoes, pickled cucumbers, lettuce leaves, red onion, barbecue sauce, mustard sauce, fried bacon",
+            "price": 15,
+            "avaiableSize": "380g",
+            "typeOfFood": ["Food", "All"]
+
+        },
+        {
+            "_id": "dishes2",
+            "title": "French fries XXL",
+            "image": "/images/dishes2.jpg",
+            "description": "French fries and any souce",
+            "price": 6,
+            "avaiableSize": "300g",
+            "typeOfFood": ["Food", "All"]
+
+        },
+        {
+            "_id": "dishes3",
+            "title": "Sandwiches",
+            "image": "/images/dishes3.jpg",
+            "description": "Panko chicken nuggets, tomatoes, lettuce, barbecue sauce, mustard sauce, fried bacon, cheese sauce",
+            "price": 15,
+            "avaiableSize": "240g",
+            "typeOfFood": ["Food", "All"]
+
+        }, 
+        {
+            "_id": "dishes4",
+            "title": "Soup",
+            "image": "/images/dishes4.jpg",
+            "description": "Ham, smoked beef, sausages, salami, pickled cucumbers, potatoes, onions, olives, lemon, sour cream",
+            "price": 9,
+            "avaiableSize": "250g",
+            "typeOfFood": ["Food", "All"]
+
+        }, 
+        {
+            "_id": "dishes5",
+            "title": "Pizza",
+            "image": "/images/dishes5.jpg",
+            "description": "Mashed tomato sauce, mozzarella, pepperoni sausage, pizza seasoning, garlic butter.",
+            "price": 20,
+            "avaiableSize": "200g",
+            "typeOfFood": ["Food", "All"]
+
+        }, 
+        {
+            "_id": "dishes6",
+            "title": "Bolognese Pasta",
+            "image": "/images/dishes6.jpg",
+            "description": "Pasta with Bolognese sauce and mashed tomatoes, served with Giugas cheese and arugula",
+            "price": 13,
+            "avaiableSize": "350g", 
+            "typeOfFood": ["Food", "All"]
+        },
+        {
+            "_id": "dishes9",
+            "title": "Cake",
+            "image": "/images/dishes9.jpg",
+            "description": "dessert of chocolate and cream cheese, whipped cream, cocoa, mint",
+            "price": 8,
+            "avaiableSize": "150g", 
+            "typeOfFood": ["Desserts", "All"]
+        },
+        {
+            "_id": "dishes11",
+            "title": "Ice cream",
+            "image": "/images/dishes11.jpg",
+            "description": "",
+            "price": 5,
+            "avaiableSize": "130g", 
+            "typeOfFood": ["Desserts", "All"]
+        },
+        {
+            "_id": "dishes15",
+            "title": "Pancakes",
+            "image": "/images/dishes15.jpg",
+            "description": "Served with grated chocolate, maple syrup and mint",
+            "price": 8,
+            "avaiableSize": "275g", 
+            "typeOfFood": ["Desserts", "All"]
+        },
+        {
+            "_id": "dishes10",
+            "title": "Whiskey",
+            "image": "/images/dishes10.jpg",
+            "description": "",
+            "price": 20,
+            "avaiableSize": "100ml", 
+            "typeOfFood": ["Alcohol", "All"]
+        },
+        {
+            "_id": "dishes7",
+            "title": "Cocktails",
+            "image": "/images/dishes7.jpg",
+            "description": "rome and soda",
+            "price": 15,
+            "avaiableSize": "100ml", 
+            "typeOfFood":["Alcohol", "All"]
+        },
+        {
+            "_id": "dishes12",
+            "title": "Wine",
+            "image": "/images/dishes12.jpg",
+            "description": "",
+            "price": 18,
+            "avaiableSize": "150ml", 
+            "typeOfFood": ["Alcohol", "All"]
+        },
+        {
+            "_id": "dishes13",
+            "title": "Tea",
+            "image": "/images/dishes13.jpg",
+            "description": "",
+            "price": 5,
+            "avaiableSize": "400ml", 
+            "typeOfFood": ["Drinks", "All"]
+        },
+        {
+            "_id": "dishes14",
+            "title": "Coffee",
+            "image": "/images/dishes14.jpg",
+            "description": "",
+            "price":5,
+            "avaiableSize": "100ml", 
+            "typeOfFood": ["Drinks", "All"]
+        },
+        {
+            "_id": "dishes8",
+            "title": "Cola",
+            "image": "/images/dishes8.jpg",
+            "description": "",
+            "price": 3,
+            "avaiableSize": "50ml", 
+            "typeOfFood": ["Drinks", "All"]
+        },
+        {
+            "_id": "dishes16",
+            "title": "Sprite",
+            "image": "/images/dishes16.jpg",
+            "description": "",
+            "price": 3,
+            "avaiableSize": "50ml", 
+            "typeOfFood": ["Drinks", "All"]
+        },
+        {
+            "_id": "dishes17",
+            "title": "Fanta",
+            "image": "/images/dishes17.jpg",
+            "description": "",
+            "price": 3,
+            "avaiableSize": "50ml", 
+            "typeOfFood": ["Drinks", "All"]
+        },
+        {
+            "_id": "dishes18",
+            "title": "Milkshake",
+            "image": "/images/dishes18.jpg",
+            "description": "",
+            "price": 4,
+            "avaiableSize": "120ml", 
+            "typeOfFood": ["Drinks", "All"]
+        }
+    ],
+    "posts": [
+        {
+            
+        }
+    ]
+}
