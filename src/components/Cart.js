@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './Cart.css' 
 import Fade from 'react-reveal/Fade'
+import axios from 'axios';
+import {} from 'react-redux'
 
 export default class Cart extends Component {
     constructor(props){
@@ -9,7 +11,8 @@ export default class Cart extends Component {
             name:"",
             comments: "",
             table: "",
-            showCheckout: false}
+            showCheckout: false
+        }
     }
 
     handleInput = (event) => {
@@ -18,6 +21,7 @@ export default class Cart extends Component {
 
     createOrder = (event) => {
         event.preventDefault();
+        
         const order = {
             name: this.state.name,
             table: this.state.table,
@@ -25,6 +29,27 @@ export default class Cart extends Component {
             cartItems: this.props.cartItems,
         }
         this.props.createOrder(order)
+    }
+
+    enterData = async (name, comments, table) => {
+        try {
+            const res = await axios.post('http://localhost:3002/posts', {
+                name,
+                comments,
+                table,
+            });
+
+            this.setState({
+                posts: res.data,
+                name: "",
+                comments:"",
+                table:"",
+            });
+            
+
+        } catch(error) {
+            this.setState({error: error.res.data});
+        }
     }
     
     render() {
@@ -51,7 +76,7 @@ export default class Cart extends Component {
                                                 {item.price} rub x {item.count} {' '}
                                                 <button className='button-primary' onClick={()=> this.props.removeFromCart(item)}>-</button>
                                             </div>
-                                    </li>
+                                    </li> 
                                 ))}
                             </ul>
                         </Fade>
@@ -72,25 +97,35 @@ export default class Cart extends Component {
                                             <form onSubmit={this.createOrder}>
                                                 <ul className='form-container'>
                                                     <li>
-                                                        <label>Comments</label>
-                                                        <textarea name='comments' required onChange={this.handleInput}></textarea>
+                                                        <label value={this.state.comments}>Comments</label>
+                                                        <textarea 
+                                                            name='comments' 
+                                                            required onChange={(event) => this.handleInput(event, 'comments')} 
+                                                            value={this.state.comments}>
+                                                        </textarea>
                                                     </li>
                                                     <li>
                                                     <label>Table</label>
-                                                        <select name='table' required onChange={this.handleInput}>
-                                                            <option value='1'>№1</option>
-                                                            <option value='2'>№2</option>
-                                                            <option value='3'>№3</option>
-                                                            <option value='4'>№4</option>
-                                                            <option value='5'>№5</option>
+                                                        <select 
+                                                        name='table' 
+                                                        required onChange={(event) => this.handleInput(event, 'table')}>
+                                                            <option value={this.state.table}>№1</option>
+                                                            <option value={this.state.table}>№2</option>
+                                                            <option value={this.state.table}>№3</option>
+                                                            <option value={this.state.table}>№4</option>
+                                                            <option value={this.state.table}>№5</option>
                                                         </select>
                                                     </li>
                                                     <li>
-                                                        <label>Waiter</label>
-                                                        <input name='name' type='text' required onChange={this.handleInput}></input>    
+                                                        <label>User</label>
+                                                        <input name='name' 
+                                                            type='text' 
+                                                            required onChange={(event) => this.handleInput(event, 'name')}
+                                                            value={this.state.name}>
+                                                        </input>    
                                                     </li>
                                                     <li>
-                                                        <button className='button-primary' type='submit'>Checkout</button>
+                                                        <button className='button-primary' type='submit' onClick={this.enterData}>Checkout</button>
                                                     </li>
                                                 </ul>
                                             </form>

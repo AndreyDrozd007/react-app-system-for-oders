@@ -1,19 +1,24 @@
 import React, { Component } from 'react'
 import './Products.css'
+import axios from 'axios'
 import Fade from 'react-reveal/Fade'
 import Modal from 'react-modal'
 import Zoom from 'react-reveal/Zoom'
-import { connect } from 'react-redux'
-import {fetchProducts} from '../actions/productActions'
-
 
 class Products extends Component {
     constructor(props){
         super(props)
         this.state={
-            pdosuct:null,
+            product:null,
         }
     }
+
+    componentDidMount() {
+        axios.get(`http://localhost:3002/products`).then((res) => {
+          const products = res.data;
+          this.setState({ products });
+        });
+      }
 
     openModal = (product) => {
         this.setState({product})
@@ -60,14 +65,7 @@ class Products extends Component {
                                             {product.description}
                                         </p>
                                         <p> Size: {' '}
-                                           {product.avaiableSize
-                                           
-                                           /* {product.avaiableSize.map( (x) => (
-                                                <span> 
-                                                    {' '} 
-                                                    <button className='button-primary'>{x}</button>
-                                                </span>
-                                            ))} */}
+                                           {product.avaiableSize}
                                         </p>
                                         <div className='product-price'>
                                             <div>{product.price} rub</div>
@@ -86,6 +84,4 @@ class Products extends Component {
     }
 }
 
-export default connect((state) => ({products: state.products}), {
-    fetchProducts,
-})(Products);
+export default Products
