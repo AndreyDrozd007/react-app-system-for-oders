@@ -1,9 +1,9 @@
 import { ACTION_TYPES } from "../types/types";
 
 const initialState = {
-  name: "aaa",
-  comments: "aaa",
-  table: "№2",
+  name: "",
+  comments: "",
+  table: "",
   showCheckout: false
 
 };
