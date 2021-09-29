@@ -3,8 +3,6 @@ import data from './db.json'
 import Products from "./components/Products";
 import Filter from "./components/Filter";
 import Cart from "./components/Cart";
-import store from "./store";
-import { Provider } from "react-redux";
 
 class App extends React.Component {
     constructor(){
@@ -59,7 +57,6 @@ class App extends React.Component {
 
     render() {
         return (
-            <Provider store={store}>
                 <div className='container-app'>
                     <header>
                         <a href='/'>System for oders</a>
@@ -85,9 +82,8 @@ class App extends React.Component {
                             </div>
                         </div>
                     </main>
-                    <footer>All right is reser</footer>
+                    <footer></footer>
                 </div>
-            </Provider>
         )
     }
 }
